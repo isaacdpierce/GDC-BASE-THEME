@@ -273,10 +273,11 @@
         </details>
       </details-modal>
     {%- endif -%}
+   LOGO WIDTH = {{ section.settings.logo.width }}
 
     {%- if request.page_type == 'index' -%}
       <h1 class="header__heading">
-    {%- endif -%}
+        {%- endif -%}
         <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
           {%- if section.settings.logo != blank -%}
             {%- assign image_size = section.settings.logo_width | append: 'x' -%}
