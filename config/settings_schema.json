@@ -308,6 +308,45 @@
     ]
   },
   {
+    "name": "Search",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_search",
+        "label": "Enable search",
+        "default": true
+      },
+      {
+        "type": "select",
+        "id": "search_type",
+        "label": "Search results",
+        "default": "product,article,page,collection",
+        "options": [
+          {
+            "value": "product",
+            "label": "Products only"
+          },
+          {
+            "value": "product,page",
+            "label": "Products and pages"
+          },
+          {
+            "value": "product,article",
+            "label": "Products and articles"
+          },
+          {
+            "value": "product,article,page",
+            "label": "Products, articles and pages"
+          },
+          {
+            "value": "product,article,page,collection",
+            "label": "All content"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "name": "t:settings_schema.favicon.name",
     "settings": [
       {

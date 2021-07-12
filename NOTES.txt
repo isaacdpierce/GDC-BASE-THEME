@@ -10,6 +10,13 @@ For Therese:
   * Typography:
     - Font sizes, spacing (between sections, headers, etc).
 
+## ADDED
 
+Theme Settings:
+
+Button shape controller
+Input Shape controller
+Disable Search Option in Header
+Search Result Customizer
 
 

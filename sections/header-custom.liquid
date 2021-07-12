@@ -237,6 +237,7 @@
     {%- endif -%}
 
     {%- if section.settings.logo_position == 'top-center' or section.settings.menu == blank -%}
+    {% if settings.enable_search %}
       <details-modal class="header__search">
         <details>
           <summary class="header__icon header__icon--search header__icon--summary link link--text focus-inset modal__toggle" aria-haspopup="dialog" aria-label="{{ 'general.search.search' | t }}">
@@ -253,7 +254,7 @@
             <div class="search-modal__content" tabindex="-1">
               <form action="{{ routes.search_url }}" method="get" role="search" class="search search-modal__form">
                 <div class="field">
-                  <input class="search__input field__input" id="Search-In-Modal" type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.search' | t }}">
+                  <input class="search__input field__input" id="Search-In-Modal" type="{{ settings.search_type }}" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.search' | t }}">
                   <label class="field__label" for="Search-In-Modal">{{ 'general.search.search' | t }}</label>
                   <input type="hidden" name="options[prefix]" value="last">
                   <button class="search__button field__button" aria-label="{{ 'general.search.search' | t }}">
@@ -273,10 +274,10 @@
         </details>
       </details-modal>
     {%- endif -%}
-
+    {%- endif -%}
     {%- if request.page_type == 'index' -%}
       <h1 class="header__heading">
-    {%- endif -%}
+        {%- endif -%}
         <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
           {%- if section.settings.logo != blank -%}
             {%- assign image_size = section.settings.logo_width | append: 'x' -%}
@@ -349,6 +350,7 @@
     {%- endif -%}
 
     <div class="header__icons">
+      {% if settings.enable_search %}
       <details-modal class="header__search">
         <details>
           <summary class="header__icon header__icon--search header__icon--summary link link--text focus-inset modal__toggle" aria-haspopup="dialog" aria-label="{{ 'general.search.search' | t }}">
@@ -365,7 +367,7 @@
             <div class="search-modal__content" tabindex="-1">
               <form action="{{ routes.search_url }}" method="get" role="search" class="search search-modal__form">
                 <div class="field">
-                  <input class="search__input field__input" id="Search-In-Modal" type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.search' | t }}">
+                  <input class="search__input field__input" id="Search-In-Modal" type="{{ settings.search_type }}" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.search' | t }}">
                   <label class="field__label" for="Search-In-Modal">{{ 'general.search.search' | t }}</label>
                   <input type="hidden" name="options[prefix]" value="last">
                   <button class="search__button field__button focus-inset" aria-label="{{ 'general.search.search' | t }}">
@@ -384,7 +386,7 @@
           </div>
         </details>
       </details-modal>
-
+      {% endif %}
       {%- if shop.customer_accounts_enabled -%}
         <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="header__icon header__icon--account link link--text focus-inset">
           {% render 'icon-account' %}
