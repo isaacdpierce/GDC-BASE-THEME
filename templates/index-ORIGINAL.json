@@ -32,21 +32,6 @@
         "adapt_height_first_image": false
       }
     },
-    "logo_list": {
-      "type": "logo-list",
-      "blocks": {
-      },
-      "block_order": [
-        "heading",
-        "button"
-      ],
-      "settings": {
-        "desktop_text_box_position": "flex-end",
-        "color_scheme": "background-1",
-        "stack_images_on_mobile": true,
-        "adapt_height_first_image": false
-      }
-    },
     "featured_products": {
       "type": "featured-collection",
       "settings": {
@@ -90,7 +75,7 @@
         "button"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/sun-setting-over-ocean.jpg", 
+        "image": "shopify:\/\/shop_images\/sun-setting-over-ocean.jpg",
         "height": "adapt",
         "color_scheme": "background-1",
         "layout": "image_first"
@@ -99,7 +84,6 @@
   },
   "order": [
     "image_banner",
-    "logo_list",
     "featured_products",
     "image_text"
   ]

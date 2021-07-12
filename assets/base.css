@@ -105,6 +105,7 @@
   --color-button-text-rgb: var(--color-background-rbg);
 }
 
+
 /* Secondary button */
 
 .button--secondary {
@@ -463,6 +464,7 @@ blockquote {
   line-height: 1.2;
   text-transform: uppercase;
 }
+
 
 .caption-large,
 .customer .field input,
@@ -2071,4 +2073,20 @@ details-disclosure > details {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* ============= GDC Custom Base Styles ====================== */
+
+.button {
+  border-radius: var(--button-radius) !important;
+  -ms-transform: var(--button-skew) !important;
+  -webkit-transform: var(--button-skew) !important;
+  transform: var(--button-skew) !important;
+}
+
+.field__input {
+  border-radius: var(--input-radius) !important;
+  -ms-transform: var(--input-skew) !important;
+  -webkit-transform: var(--input-skew) !important;
+  transform: var(--input-skew) !important;
 }

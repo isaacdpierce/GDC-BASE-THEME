@@ -19,36 +19,38 @@
     <title>{{ page_title }}</title>
 
     {% if page_description %}
-      <meta name="description" content="{{ page_description | escape }}">
+    <meta name="description" content="{{ page_description | escape }}">
     {% endif %}
-
+    
     {% render 'meta-tags' %}
-
+    
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
     {{ content_for_header }}
-
+    
     {%- liquid
       assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
       assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
       assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
-    %}
+      %}
 
-    {% style %}
+      
+      {% style %}
       {{ settings.type_body_font | font_face: font_display: 'swap' }}
       {{ body_font_bold | font_face: font_display: 'swap' }}
       {{ body_font_italic | font_face: font_display: 'swap' }}
       {{ body_font_bold_italic | font_face: font_display: 'swap' }}
       {{ settings.type_header_font | font_face: font_display: 'swap' }}
-
+      
+      
       :root {
         --font-body-family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
         --font-body-style: {{ settings.type_body_font.style }};
         --font-body-weight: {{ settings.type_body_font.weight }};
-
+        
         --font-heading-family: {{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }};
         --font-heading-style: {{ settings.type_header_font.style }};
         --font-heading-weight: {{ settings.type_header_font.weight }};
-
+        
         --color-base-text: {{ settings.colors_text }};
         --color-base-text-rgb: {{ settings.colors_text.red }}, {{ settings.colors_text.green }}, {{ settings.colors_text.blue }};
         --color-base-background-1: {{ settings.colors_background_1 }};
@@ -63,14 +65,41 @@
         --color-base-accent-1-rgb: {{ settings.colors_accent_1.red }}, {{ settings.colors_accent_1.green }}, {{ settings.colors_accent_1.blue }};
         --color-base-accent-2: {{ settings.colors_accent_2 }};
         --color-base-accent-2-rgb: {{ settings.colors_accent_2.red }}, {{ settings.colors_accent_2.green }}, {{ settings.colors_accent_2.blue }};
-      }
 
+      <!-- ================== GDC CUSTOM CSS VARIABLES ===============  -->
+        
+        {% if settings.button_style == 'round-slight' %}
+          --button-radius: 3px;
+        {% elsif settings.button_style == 'round' %}
+          --button-radius: 50px;
+        {% else %}
+          --button-radius: 0px;
+        {% endif %}
+
+        {% if settings.button_style == 'angled' %}
+          --button-skew: skewX(-20deg);
+        {% endif %}
+
+        {% if settings.input_style == 'round-slight' %}
+          --input-radius: 3px;
+        {% elsif settings.input_style == 'round' %}
+          --input-radius: 50px;
+        {% else %}
+          --input-radius: 0px;
+        {% endif %}
+
+        {% if settings.input_style == 'angled' %}
+          --input-skew: skewX(-20deg);
+        {% endif %}
+
+      }
+      
       *,
       *::before,
       *::after {
         box-sizing: inherit;
       }
-
+      
       html {
         box-sizing: border-box;
         font-size: 62.5%;
@@ -99,6 +128,8 @@
     {% endstyle %}
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
+    {{ 'gdc-custom.css' | asset_url | stylesheet_tag }}
+
 
     {%- unless settings.type_body_font.system? -%}
       <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>

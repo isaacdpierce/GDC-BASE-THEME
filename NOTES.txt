@@ -2,7 +2,7 @@
 
 For Therese:
 
-1) A lit of al theme level settings she would like
+1) A list of al theme level settings she would like
 
   * Colours:
     - buttons, links, etc.

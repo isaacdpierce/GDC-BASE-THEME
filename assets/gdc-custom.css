@@ -1,0 +1,69 @@
+/* ===================== LOGO LIST ======================= */
+
+.gdc-logo-list__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 0;
+}
+
+.gdc-logo-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 900px;
+  max-width: 90vw;
+}
+
+.gdc-logo-list__item {
+  padding: 10px;
+  text-align: center;
+  width: calc(100% / 4)
+}
+
+.gdc-logo-list__item h6 {
+  font-size: 20px;
+  letter-spacing: 2px;
+  text-transform: none;
+  margin: 0;
+}
+
+.gdc-logo-list__item a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.gdc-logo-list__image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 200px;
+
+}
+
+.gdc-logo-list__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@media only screen and (max-width: 600px) {
+  .gdc-logo-list__item {
+    width: calc(100% / 2);
+  }
+}
+
+/* ============= GLOBAL SETTINGS ================= */
+
+@media only screen and (max-width: 600px){
+  .hide-600 {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .hide-1000 {
+    display: none;
+  }
+}
