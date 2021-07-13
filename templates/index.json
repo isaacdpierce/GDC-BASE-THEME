@@ -33,19 +33,13 @@
       }
     },
     "logo_list": {
-      "type": "logo-list",
-      "blocks": {
-      },
-      "block_order": [
-        "heading",
-        "button"
-      ],
-      "settings": {
-        "desktop_text_box_position": "flex-end",
-        "color_scheme": "background-1",
-        "stack_images_on_mobile": true,
-        "adapt_height_first_image": false
-      }
+      "type": "gdc-logo-list" 
+    },
+    "hero_image_text": {
+      "type": "gdc-hero-image-text" 
+    },
+    "hero_split": {
+      "type": "gdc-hero-split" 
     },
     "featured_products": {
       "type": "featured-collection",
@@ -56,9 +50,9 @@
         "show_view_all": true,
         "swipe_on_mobile": false,
         "image_ratio": "adapt",
-        "show_secondary_image": false,
+        "show_secondary_image": false, 
         "add_image_padding": false,
-        "show_vendor": false
+        "show_vendor": false 
       }
     },
     "image_text": {

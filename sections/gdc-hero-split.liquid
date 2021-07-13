@@ -1,0 +1,542 @@
+{%- liquid
+  assign show_image_containers = section.settings.show_image_containers
+-%}
+
+<section class="gdc-hero-split__section-wrapper">
+  <div class="gdc-hero-split__side-wrapper gdc-hero-split__left">
+    {% if section.settings.image_one %}
+    <div class="gdc-hero-split__image-wrapper gdc-hero-split__image-wrapper--left">
+      <div class="gdc-hero-split__image gdc-hero-split__image--left">
+        <img srcset="{%- if section.settings.image_one.width >= 165 -%}{{ section.settings.image_one | img_url: '165x' }} 165w,{%- endif -%} 
+        {%- if section.settings.image_one.width >= 360 -%}{{ section.settings.image_one | img_url: '360x' }} 360w,{%- endif -%}
+        {%- if section.settings.image_one.width >= 535 -%}{{ section.settings.image_one | img_url: '535x' }} 535w,{%- endif -%}
+        {%- if section.settings.image_one.width >= 720 -%}{{ section.settings.image_one | img_url: '720x' }} 720w,{%- endif -%}
+        {%- if section.settings.image_one.width >= 940 -%}{{ section.settings.image_one | img_url: '940x' }} 940w,{%- endif -%}
+        {%- if section.settings.image_one.width >= 1070 -%}{{ section.settings.image_one | img_url: '1070x' }} 1070w{%- endif -%}"
+        src="{{ section.settings.image_one | img_url: '533x' }}"
+        sizes="(min-width: 1100px) 535px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+        alt="{{ section.settings.image_one.alt | escape }}"
+        loading="lazy"
+        width="{{ section.settings.image_one.width }}"
+        height="{{ section.settings.image_one.height }}"
+        >
+      </div>
+    </div>
+    {% endif %}
+    
+    <div class="gdc-hero-split__text-wrapper">
+      <div class="gdc-hero-split__text gdc-hero-split__text--left">
+        {% if section.settings.left_title != blank %}
+        <h2>{{ section.settings.left_title }}</h2>
+        {% endif %}
+        {% if section.settings.left_subtitle != blank %}
+        <h3>{{ section.settings.left_subtitle }}</h3>
+        {% endif %}
+        {% if section.settings.left_text != blank %}
+        <p>{{ section.settings.left_text }}</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="gdc-hero-split__side-wrapper gdc-hero-split__right">
+    {% if section.settings.image_two %}
+    <div class="gdc-hero-split__image-wrapper gdc-hero-split__image-wrapper--right">
+      <div class="gdc-hero-split__image gdc-hero-split__image--right">
+        <img srcset="{%- if section.settings.image_two.width >= 165 -%}{{ section.settings.image_two | img_url: '165x' }} 165w,{%- endif -%} 
+        {%- if section.settings.image_two.width >= 360 -%}{{ section.settings.image_two | img_url: '360x' }} 360w,{%- endif -%}
+        {%- if section.settings.image_two.width >= 535 -%}{{ section.settings.image_two | img_url: '535x' }} 535w,{%- endif -%}
+        {%- if section.settings.image_two.width >= 720 -%}{{ section.settings.image_two | img_url: '720x' }} 720w,{%- endif -%}
+        {%- if section.settings.image_two.width >= 940 -%}{{ section.settings.image_two | img_url: '940x' }} 940w,{%- endif -%}
+        {%- if section.settings.image_two.width >= 1070 -%}{{ section.settings.image_two | img_url: '1070x' }} 1070w{%- endif -%}"
+        src="{{ section.settings.image_two | img_url: '533x' }}"
+        sizes="(min-width: 1100px) 535px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+        alt="{{ section.settings.image_two.alt | escape }}"
+        loading="lazy"
+        width="{{ section.settings.image_two.width }}"
+        height="{{ section.settings.image_two.height }}"
+        >
+    </div>
+  </div>
+    {% endif %}
+
+    <div class="gdc-hero-split__text-wrapper">
+      <div class="gdc-hero-split__text gdc-hero-split__text--right">
+        {% if section.settings.right_title != blank %}
+        <h2>{{ section.settings.right_title }}</h2>
+        {% endif %}
+        {% if section.settings.right_subtitle != blank %}
+        <h3>{{ section.settings.right_subtitle }}</h3>
+        {% endif %}
+        {% if section.settings.right_text != blank %} 
+        <p>{{ section.settings.right_text }}</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .gdc-hero-split__section-wrapper {
+    display: flex;
+    height: {{ section.settings.hero_height }}px;
+    margin-top: {{ section.settings.t_margin }}px;
+    margin-bottom: {{ section.settings.b_margin }}px;
+  }
+
+  .gdc-hero-split__side-wrapper {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 100%;
+    width: 50vw;
+    height: {{ section.settings.hero_height }}px;
+    overflow: hidden;
+  }
+
+  .gdc-hero-split__left {
+    background-color: {{ section.settings.bg_color_left }};
+  }
+
+  .gdc-hero-split__right {
+    background-color: {{ section.settings.bg_color_right }};
+  }
+
+  .gdc-hero-split__image-wrapper {
+    grid-column: 1;
+    grid-row: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .gdc-hero-split__image {
+    width: 100%;
+    height: 100%;
+  }
+
+  .gdc-hero-split__image--left {
+    width: {{ section.settings.image_left_width}}%;
+    height: {{ section.settings.image_left_height}}%;
+    {% if show_image_containers %}
+    border: 5px dotted red;
+    {% endif %}
+  }
+
+  .gdc-hero-split__image--left img {
+    width: 100%;
+    height: 100%;
+    object-fit: {{ section.settings.image_left_fit }};
+    object-position: {{ section.settings.image_left_h_pos }}% {{ section.settings.image_left_v_pos }}%;
+    opacity: {{ section.settings.image_left_opacity }};
+  }
+
+  .gdc-hero-split__image--right {
+    width: {{ section.settings.image_right_width}}%;
+    height: {{ section.settings.image_right_height}}%;
+    {% if show_image_containers %}
+    border: 5px dotted yellow;
+    {% endif %}
+  }
+
+  .gdc-hero-split__image--right img {
+    width: 100%;
+    height: 100%;
+    object-fit:  {{ section.settings.image_right_fit }};
+    object-position: {{ section.settings.image_right_h_pos }}% {{ section.settings.image_right_v_pos }}%;
+    opacity: {{ section.settings.image_right_opacity }};
+  }
+
+  .gdc-hero-split__text-wrapper {
+    background-color: rgba(94, 143, 132, 0.507);
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99;
+  }
+
+  .gdc-hero-split__text {
+    display: inline-block;
+    padding: 20px;
+  }
+
+  .gdc-hero-split__text--left {
+    background-color: black;
+    
+  }
+
+  .gdc-hero-split__text--right {
+    background-color: red;
+  }
+
+  .gdc-hero-split__text--left p,
+  .gdc-hero-split__text--left h2,
+  .gdc-hero-split__text--left h3 {
+    color: white;
+  }
+
+  .gdc-hero-split__text--right p,
+  .gdc-hero-split__text--right h2,
+  .gdc-hero-split__text--right h3 {
+    color: black;
+  }
+
+</style>
+
+{% schema %}
+{
+  "name": "Hero: Split",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Settings"
+    },
+    {
+      "type": "range",
+      "id": "t_margin",
+      "label": "Section Top Margin",
+      "default": 0,
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px" 
+    },
+    {
+      "type": "range",
+      "id": "b_margin",
+      "label": "Section Bottom Margin",
+      "default": 0,
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "hero_height",
+      "label": "Section Height",
+      "default": 500,
+      "min": 250,
+      "max": 750,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "bg_color_left",
+      "label": "Background Color Left",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "bg_color_right",
+      "label": "Background Color Right",
+      "default": "#999999"
+    },
+    {
+      "type": "header",
+      "content": "Image Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_image_containers",
+      "default": false,
+      "label": "Show Image Containers",
+      "info": "For visualizing how the image can be moved around container. The image can only be moved in a direction where there is space between the image and the dotted line."
+    },
+    {
+      "type": "header",
+      "content": "Left Image Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_one",
+      "label": "Left Image"
+    },
+    {
+      "type": "range",
+      "id": "image_left_height",
+      "label": "Image Left Container Height",
+      "default": 100,
+      "min": 50,
+      "max": 100,
+      "step": 1,
+      "unit": "%"
+    },
+    {
+      "type": "range",
+      "id": "image_left_width",
+      "label": "Image Left Container Width",
+      "default": 100,
+      "min": 50,
+      "max": 100,
+      "step": 1,
+      "unit": "%"
+    },
+    {
+      "type": "select",
+      "id": "image_left_fit",
+      "default": "cover",
+      "options": [
+         { "value": "cover", "label": "Cover"},
+         { "value": "contain", "label": "Contain"}
+      ],
+      "label": "Left Image Fit"    
+    },
+    {
+      "type": "range",
+      "id": "image_left_h_pos",
+      "label": "Image Left Horizontal Position",
+      "default": 50,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%"
+    },
+    {
+      "type": "range",
+      "id": "image_left_v_pos",
+      "label": "Image Left Vertical Position",
+      "default": 50,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%"
+    },
+    {
+      "type": "range",
+      "id": "image_left_opacity",
+      "label": "Image Left Opacity",
+      "default": 1.0,
+      "min": 0,
+      "max": 1.0,
+      "step": 0.1
+    },
+    {
+      "type": "header",
+      "content": "Right Image Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_two",
+      "label": "Right Image"
+    },
+    {
+      "type": "range",
+      "id": "image_right_height",
+      "label": "Image Right Container Height",
+      "default": 100,
+      "min": 50,
+      "max": 100,
+      "step": 1,
+      "unit": "%"
+    },
+    {
+      "type": "range",
+      "id": "image_right_width",
+      "label": "Image Right Container Width",
+      "default": 100,
+      "min": 50,
+      "max": 100,
+      "step": 1,
+      "unit": "%"
+    },
+    {
+      "type": "select",
+      "id": "image_right_fit",
+      "default": "cover",
+      "options": [
+         { "value": "cover", "label": "Cover"},
+         { "value": "contain", "label": "Contain"}
+      ],
+      "label": "Right Image Fit"    
+    },
+    {
+      "type": "range",
+      "id": "image_right_h_pos",
+      "label": "Image Right Horizontal Position",
+      "default": 50,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%"
+    },
+    {
+      "type": "range",
+      "id": "image_right_v_pos",
+      "label": "Image Right Vertical Position",
+      "default": 50,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%"
+    },
+    {
+      "type": "range",
+      "id": "image_right_opacity",
+      "label": "Image Right Opacity",
+      "default": 1.0,
+      "min": 0,
+      "max": 1.0,
+      "step": 0.1
+    },
+    {
+      "type": "header",
+      "content": "Text Settings"
+    },
+    {
+      "type": "header",
+      "content": "Left Text Settings"  
+    },
+    {
+      "type": "select",
+      "id": "left_text_h_pos",
+      "default": "center",
+      "options": [
+         { "value": "start", "label": "Left"},
+         { "value": "center", "label": "Center"},
+         { "value": "flex-end", "label": "Right"}
+      ],
+      "label": "Text Horizontal Position"    
+    },
+    {
+      "type": "select",
+      "id": "left_text_v_pos",
+      "default": "center",
+      "options": [
+         { "value": "start", "label": "Top"},
+         { "value": "center", "label": "Center"},
+         { "value": "flex-end", "label": "Bottom"} 
+      ],
+      "label": "Text Vertical Position" 
+    },
+    {
+      "type": "color",
+      "id": "left_text_color",
+      "label": "Text color"
+    },
+    {
+      "type": "color",
+      "id": "left_text_bg_color",
+      "label": "Text Background color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "left_bg_opacity",
+      "label": "Text Background Opacity",
+      "default": 30,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%"
+    },
+    {
+      "type": "select",
+      "id": "left_text_align",
+      "options": [
+         { "value": "left", "label": "Left"},
+         { "value": "center", "label": "Center"},
+         { "value": "right", "label": "Right"}
+      ],
+      "label": "Text Alignment" 
+    },
+    {
+      "type": "text",
+      "id": "left_title",
+      "label": "Section Title"
+    }, 
+    {
+      "type": "text",
+      "id": "left_subtitle",
+      "label": "Section Subtitle"
+    },
+    {
+      "type": "richtext",
+      "id": "left_text",
+      "label": "Section Rich Text"
+    },
+    {
+      "type": "header",
+      "content": "Right Text Settings"
+    },
+    {
+      "type": "select",
+      "id": "right_text_h_pos",
+      "default": "center",
+      "options": [
+         { "value": "start", "label": "Left"},
+         { "value": "center", "label": "Center"},
+         { "value": "flex-end", "label": "Right"}
+      ],
+      "label": "Text Horizontal Position"    
+    },
+    {
+      "type": "select",
+      "id": "right_text_v_pos",
+      "default": "center",
+      "options": [
+         { "value": "start", "label": "Top"},
+         { "value": "center", "label": "Center"},
+         { "value": "flex-end", "label": "Bottom"}
+      ],
+      "label": "Text Vertical Position" 
+    },
+    {
+      "type": "color",
+      "id": "right_text_color",
+      "label": "Text color"
+    },
+    {
+      "type": "color",
+      "id": "right_text_bg_color",
+      "label": "Text Background color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "right_bg_opacity",
+      "label": "Text Background Opacity",
+      "default": 30,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%"
+    },
+    {
+      "type": "select",
+      "id": "right_text_align",
+      "options": [
+         { "value": "left", "label": "Left"},
+         { "value": "center", "label": "Center"},
+         { "value": "right", "label": "Right"}
+      ],
+      "label": "Text Alignment" 
+    },
+    {
+      "type": "text",
+      "id": "right_title",
+      "label": "Section Title"
+    },
+    {
+      "type": "text",
+      "id": "right_subtitle",
+      "label": "Section Subtitle"
+    },
+    {
+      "type": "richtext",
+      "id": "right_text",
+      "label": "Section Rich Text"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero: Split",
+      "category": "GDC Custom Components"
+    }
+  ]
+}
+{% endschema %}

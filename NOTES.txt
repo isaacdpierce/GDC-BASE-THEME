@@ -1,5 +1,10 @@
 # NOTES
 
+## TODO
+
+- Change text section in hero to flex positioning
+- ADD section padding
+
 For Therese:
 
 1) A list of al theme level settings she would like
@@ -19,4 +24,8 @@ Input Shape controller
 Disable Search Option in Header
 Search Result Customizer
 
+Sections Built:
+
+Hero Section
+Logo List
 

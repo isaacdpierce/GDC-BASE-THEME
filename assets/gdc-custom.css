@@ -54,6 +54,62 @@
   }
 }
 
+/* ============= GDC HERO IMAGE TEXT ================= */
+
+.gdc-hero-image-text__wrapper {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 100%;
+  overflow: hidden;
+}
+
+.gdc-hero-image-text__image {
+  grid-column: 1;
+  grid-row: 1;
+  width: 100vw;
+}
+
+.gdc-hero-image-text__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gdc-hero-image-text__text-wrapper {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  width: 100%;
+}
+
+.gdc-hero-image-text__text {
+  display: inline-block;
+  min-width: 250px;
+  padding: 20px;
+}
+
+.gdc-hero-image-text__text p, 
+.gdc-hero-image-text__text h2, 
+.gdc-hero-image-text__text h3 {
+  margin: 0;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 600px) {
+  .gdc-hero-image-text__text h2 {
+    font-size: 36px;
+  }
+
+  .gdc-hero-image-text__text h3 {
+    font-size: 24px;
+  }
+
+  .gdc-hero-image-text__text p {
+    font-size: 14px;
+  }
+}
+
 /* ============= GLOBAL SETTINGS ================= */
 
 @media only screen and (max-width: 600px){
