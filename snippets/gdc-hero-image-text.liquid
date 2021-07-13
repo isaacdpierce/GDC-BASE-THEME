@@ -7,8 +7,9 @@
   
 -%}
 
-<section class="gdc-hero-image-text__wrapper">
-  <div class="gdc-hero-image-text__image">
+<section class="gdc-hero-image-text__wrapper section--{{ section.id }}">
+  {% if section.settings.image %}
+  <div class="gdc-hero-image-text__image section--{{ section.id }}">
     <img srcset="{%- if section.settings.image.width >= 165 -%}{{ section.settings.image | img_url: '165x' }} 165w,{%- endif -%} 
       {%- if section.settings.image.width >= 360 -%}{{ section.settings.image | img_url: '360x' }} 360w,{%- endif -%}
       {%- if section.settings.image.width >= 535 -%}{{ section.settings.image | img_url: '535x' }} 535w,{%- endif -%}
@@ -23,10 +24,11 @@
       height="{{ section.settings.image.height }}"
     >
   </div>
+  {% endif%}
 
   {% if show_text %}
-    <div class="gdc-hero-image-text__text-wrapper">
-      <div class="gdc-hero-image-text__text">
+    <div class="gdc-hero-image-text__text-wrapper section--{{ section.id }}">
+      <div class="gdc-hero-image-text__text section--{{ section.id }}">
         {% if section.settings.title != blank %}
           <h2>{{ section.settings.title }}</h2>
         {% endif %}
@@ -42,28 +44,28 @@
 </section>
 
 <style>
-  .gdc-hero-image-text__wrapper {
+  .gdc-hero-image-text__wrapper.section--{{ section.id }} {
     height: {{ section.settings.hero_height }}px;
     margin-top: {{ section.settings.t_margin }}px;
     margin-bottom: {{ section.settings.b_margin }}px;
   }
 
-  .gdc-hero-image-text__image {
+  .gdc-hero-image-text__image.section--{{ section.id }} {
     height: {{ section.settings.hero_height }}px;
   }
 
-  .gdc-hero-image-text__image img {
+  .gdc-hero-image-text__image.section--{{ section.id }} img {
     object-position: {{ section.settings.img_h_position }}% {{ section.settings.img_v_position }}%;
   }
 
-  .gdc-hero-image-text__text-wrapper {
+  .gdc-hero-image-text__text-wrapper.section--{{ section.id }} {
     justify-content: {{ section.settings.text_h_pos }};
     align-items: {{ section.settings.text_v_pos }};
     padding: {{ section.settings.v_padding }}px {{ section.settings.h_padding }}px;
     height: {{ section.settings.hero_height }}px;
   }
 
-  .gdc-hero-image-text__text {
+  .gdc-hero-image-text__text.section--{{ section.id }} {
     text-align: {{ section.settings.text_align }};
     max-width: {{ section.settings.text_max_width }}px;
     {% if section.settings.bg_opacity < 100 %}
@@ -73,21 +75,21 @@
     {% endif %};
   }
 
-  .gdc-hero-image-text__text p, 
-  .gdc-hero-image-text__text h2, 
-  .gdc-hero-image-text__text h3 {
+  .gdc-hero-image-text__text.section--{{ section.id }} p, 
+  .gdc-hero-image-text__text.section--{{ section.id }} h2, 
+  .gdc-hero-image-text__text.section--{{ section.id }} h3 {
     color: {{ section.settings.text_color }};
   }
 
-  .gdc-hero-image-text__text h2 {
+  .gdc-hero-image-text__text.section--{{ section.id }} h2 {
     font-size: {{ section.settings.title_size }}px;
   }
 
-  .gdc-hero-image-text__text h3 {
+  .gdc-hero-image-text__text.section--{{ section.id }} h3 {
     font-size: {{ section.settings.subtitle_size }}px;
   }
 
-  .gdc-hero-image-text__text p {
+  .gdc-hero-image-text__text.section--{{ section.id }} p {
     font-size: {{ section.settings.text_size }}px;
   }
 </style>

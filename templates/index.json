@@ -41,6 +41,9 @@
     "hero_split": {
       "type": "gdc-hero-split" 
     },
+    "image_text_grid": {
+      "type": "gdc-image-text-grid" 
+    },
     "featured_products": {
       "type": "featured-collection",
       "settings": {
@@ -94,7 +97,10 @@
   "order": [
     "image_banner",
     "logo_list",
-    "featured_products",
-    "image_text"
+    "hero_image_text",
+    "hero_split",
+    "image_text_grid",
+    "featured_products", 
+    "image_text" 
   ]
 }

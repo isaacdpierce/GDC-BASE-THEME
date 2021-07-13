@@ -2,8 +2,14 @@
 
 ## TODO
 
-- Change text section in hero to flex positioning
-- ADD section padding
+Build:
+
+- Super Text section (BLOCKS (rows): paragraphs, columns, title (full width), button (full width))
+- Cards section
+- Cards Slider - same as TRA (Optional click to scroll buttons, dots, etc)
+- Image Slider (full width) - (Optional click to scroll buttons, dots, etc)
+
+
 
 For Therese:
 
@@ -26,6 +32,8 @@ Search Result Customizer
 
 Sections Built:
 
-Hero Section
+Hero Image Text Section
+Hero Split
 Logo List
+Grid Section
 
