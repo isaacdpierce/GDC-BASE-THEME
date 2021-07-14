@@ -9,8 +9,6 @@ Build:
 - Cards Slider - same as TRA (Optional click to scroll buttons, dots, etc)
 - Image Slider (full width) - (Optional click to scroll buttons, dots, etc)
 
-
-
 For Therese:
 
 1) A list of al theme level settings she would like
