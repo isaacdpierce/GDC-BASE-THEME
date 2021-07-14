@@ -32,28 +32,6 @@
         "adapt_height_first_image": false
       }
     },
-    "logo_list": {
-      "type": "gdc-logo-list",
-      "blocks": {
-        "ab0066c3-f55d-445c-ade7-49300a0e0b93": {
-          "type": "logo_image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/northern-forest.jpg",
-            "logo_title": "",
-            "link_text": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "ab0066c3-f55d-445c-ade7-49300a0e0b93"
-      ],
-      "settings": {
-        "hide_mobile": false,
-        "color_scheme": "background-1",
-        "title": ""
-      }
-    },
     "hero_image_text": {
       "type": "gdc-hero-image-text",
       "settings": {
@@ -77,49 +55,6 @@
         "subtitle_size": 24,
         "text": "",
         "text_size": 16
-      }
-    },
-    "hero_split": {
-      "type": "gdc-hero-split",
-      "settings": {
-        "t_margin": 0,
-        "b_margin": 0,
-        "hero_height": 500,
-        "bg_color_left": "#fafafa",
-        "bg_color_right": "#ededed",
-        "show_image_containers": false,
-        "image_left_height": 100,
-        "image_left_width": 100,
-        "image_left_fit": "cover",
-        "image_left_h_pos": 50,
-        "image_left_v_pos": 50,
-        "image_left_opacity": 1,
-        "image_right_height": 100,
-        "image_right_width": 100,
-        "image_right_fit": "cover",
-        "image_right_h_pos": 50,
-        "image_right_v_pos": 50,
-        "image_right_opacity": 1,
-        "left_text_h_pos": "center",
-        "left_text_margin": 0,
-        "left_text_v_pos": "center",
-        "left_text_color": "#fff",
-        "left_text_bg_color": "#000000",
-        "left_bg_opacity": 90,
-        "left_text_align": "left",
-        "left_title": "",
-        "left_subtitle": "",
-        "left_text": "",
-        "right_text_h_pos": "center",
-        "right_text_v_pos": "center",
-        "right_text_margin": 0,
-        "right_text_color": "#000",
-        "right_text_bg_color": "#fff",
-        "right_bg_opacity": 90,
-        "right_text_align": "left",
-        "right_title": "",
-        "right_subtitle": "",
-        "right_text": ""
       }
     },
     "image_text_grid": {
@@ -193,9 +128,7 @@
   },
   "order": [
     "image_banner",
-    "logo_list",
     "hero_image_text",
-    "hero_split",
     "image_text_grid",
     "featured_products",
     "image_text"
