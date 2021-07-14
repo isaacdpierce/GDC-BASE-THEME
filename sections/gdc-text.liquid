@@ -1,0 +1,364 @@
+<section class="gdc-text-section__wrapper section--{{ section.id }}">
+  {% render 'gdc-section-header' %}
+  {% render 'gdc-template-blocks-text' %}
+</section>
+
+<style>
+  .gdc-text-section__wrapper.section--{{ section.id }} {
+    background-color: {{ section.settings.bg_color }};
+    margin-top: {{ section.settings.t_margin }}px;
+    margin-bottom: {{ section.settings.b_margin }}px;
+    padding-top: {{ section.settings.t_padding }}px;
+    padding-bottom: {{ section.settings.b_padding }}px; 
+  }
+</style>
+
+{% schema %}
+  {
+    "name": "Text",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Text Section Settings"
+      },
+      {
+        "type": "range",
+        "id": "t_margin",
+        "label": "Section top margin",
+        "default": 0,
+        "min": 0,
+        "max": 100,
+        "step": 10,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "b_margin",
+        "label": "Section bottom margin",
+        "default": 0,
+        "min": 0,
+        "max": 100,
+        "step": 10,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "t_padding",
+        "label": "Top Padding",
+        "default": 0,
+        "min": 0,
+        "max": 100,
+        "step": 10,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "b_padding",
+        "label": "Bottom Padding",
+        "default": 0,
+        "min": 0,
+        "max": 100,
+        "step": 10,
+        "unit": "px"
+      },
+      {
+        "type": "text", 
+        "id": "title",
+        "label": "Section Title" 
+      },
+      {
+        "type": "checkbox",
+        "id": "title_line",
+        "label": "Underline Title",
+        "default": false
+      },
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Section Subtitle"
+      },
+      {
+        "type": "select",
+        "id": "text_align",
+        "options": [
+           { "value": "left", "label": "Left"},
+           { "value": "center", "label": "Center"},  
+           { "value": "right", "label": "Right"}
+        ],
+        "label": "Section Text alignment"
+      },
+      {
+        "type": "color",
+        "id": "bg_color",
+        "label": "Section Background color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "font_color",
+        "label": "Section Font color",
+        "default": "#000"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "name": "Paragraph",
+        "settings": [
+          {
+            "type": "header",
+            "content": "Paragraph Settings"
+          },
+          {
+            "type": "checkbox",
+            "id": "hide_tablets",
+            "label": "Hide grid item on tablets",
+            "default": false,
+            "info": "Section won't show on screen sizes smaller than 1000px wide"
+          },
+          {
+            "type": "checkbox",
+            "id": "hide_phones",
+            "label": "Hide grid item on phones",
+            "default": false,
+            "info": "Section won't show on screen sizes smaller than 600px wide"
+          },
+          {
+            "type": "range",
+            "id": "t_margin",
+            "label": "Section top margin",
+            "default": 0,
+            "min": 0,
+            "max": 100,
+            "step": 10,
+            "unit": "px"
+          },
+          {
+            "type": "range",
+            "id": "b_margin",
+            "label": "Section bottom margin",
+            "default": 0,
+            "min": 0,
+            "max": 100,
+            "step": 10,
+            "unit": "px"
+          },
+          {
+            "type": "range",
+            "id": "t_padding",
+            "label": "Top Padding",
+            "default": 0,
+            "min": 0,
+            "max": 100,
+            "step": 10,
+            "unit": "px"
+          },
+          {
+            "type": "range",
+            "id": "b_padding",
+            "label": "Bottom Padding",
+            "default": 0,
+            "min": 0,
+            "max": 100,
+            "step": 10,
+            "unit": "px"
+          },
+          {
+            "type": "color",
+            "id": "bg_color",
+            "label": "Background color",
+            "default": "#ffffff"
+          },
+          {
+            "type": "color",
+            "id": "font_color",
+            "label": "Font color",
+            "default": "#000"
+          },
+          {
+            "type": "text", 
+            "id": "title",
+            "label": "Title" 
+          },
+          {
+            "type": "select",
+            "id": "title_align",
+            "options": [
+               { "value": "left", "label": "Left"},
+               { "value": "center", "label": "Center"},  
+               { "value": "right", "label": "Right"}
+            ],
+            "label": "Title alignment"
+          },
+          {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text"
+          },
+          {
+            "type": "select",
+            "id": "text_align",
+            "options": [
+               { "value": "left", "label": "Left"},
+               { "value": "center", "label": "Center"},  
+               { "value": "right", "label": "Right"}
+            ],
+            "label": "Text alignment"
+          }
+        ]
+      },
+      {
+        "type": "text-columns",
+        "name": "Text Columns",
+        "settings": [
+        {
+            "type": "header",
+            "content": "Column Settings"
+          },
+          {
+            "type": "checkbox",
+            "id": "hide_tablets",
+            "label": "Hide grid item on tablets",
+            "default": false,
+            "info": "Section won't show on screen sizes smaller than 1000px wide"
+          },
+          {
+            "type": "checkbox",
+            "id": "hide_phones",
+            "label": "Hide grid item on phones",
+            "default": false,
+            "info": "Section won't show on screen sizes smaller than 600px wide"
+          },
+          {
+            "type": "select",
+            "id": "mobile_wrap",
+            "options": [
+               { "value": "wrap", "label": "Wrap"},
+               { "value": "stack", "label": "Stack"},  
+               { "value": "half", "label": "Half of section width on tablets"}
+            ],
+            "label": "Column Mobile Setting"
+          },
+          {
+            "type": "range",
+            "id": "t_margin",
+            "label": "Section top margin",
+            "default": 0,
+            "min": 0,
+            "max": 100,
+            "step": 10,
+            "unit": "px"
+          },
+          {
+            "type": "range",
+            "id": "b_margin",
+            "label": "Section bottom margin",
+            "default": 0,
+            "min": 0,
+            "max": 100,
+            "step": 10,
+            "unit": "px"
+          },
+          {
+            "type": "range",
+            "id": "t_padding",
+            "label": "Top Padding",
+            "default": 0,
+            "min": 0,
+            "max": 100,
+            "step": 10,
+            "unit": "px"
+          },
+          {
+            "type": "range",
+            "id": "b_padding",
+            "label": "Bottom Padding",
+            "default": 0,
+            "min": 0,
+            "max": 100,
+            "step": 10,
+            "unit": "px"
+          },
+          {
+            "type": "color",
+            "id": "bg_color",
+            "label": "Background color",
+            "default": "#ffffff"
+          },
+          {
+            "type": "color",
+            "id": "font_color",
+            "label": "Font color",
+            "default": "#000"
+          },
+          {
+            "type": "select",
+            "id": "title_align",
+            "options": [
+               { "value": "left", "label": "Left"},
+               { "value": "center", "label": "Center"},  
+               { "value": "right", "label": "Right"}
+            ],
+            "label": "Title alignment"
+          },
+          {
+            "type": "text", 
+            "id": "title_1",
+            "label": "Title Column 1" 
+          },
+          {
+            "type": "richtext",
+            "id": "text_1",
+            "label": "Text Column 1"
+          },
+          {
+            "type": "text", 
+            "id": "title_2",
+            "label": "Title Column 2" 
+          },
+          {
+            "type": "richtext",
+            "id": "text_2",
+            "label": "Text Column 2"
+          },
+          {
+            "type": "text", 
+            "id": "title_3",
+            "label": "Title Column 3" 
+          },
+          {
+            "type": "richtext",
+            "id": "text_3",
+            "label": "Text Column 3"
+          },
+          {
+            "type": "text", 
+            "id": "title_4",
+            "label": "Title Column 4" 
+          },
+          {
+            "type": "richtext",
+            "id": "text_4",
+            "label": "Text Column 4"
+          },
+          {
+            "type": "select",
+            "id": "text_align",
+            "options": [
+               { "value": "left", "label": "Left"},
+               { "value": "center", "label": "Center"},  
+               { "value": "right", "label": "Right"}
+            ],
+            "label": "Text alignment"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Text",
+        "category": "GDC Custom Components" 
+      }
+    ]
+  }
+{% endschema %}

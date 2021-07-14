@@ -4,10 +4,19 @@
 
 Build:
 
+COMPONENTS:
+
 - Super Text section (BLOCKS (rows): paragraphs, columns, title (full width), button (full width))
+
 - Cards section
 - Cards Slider - same as TRA (Optional click to scroll buttons, dots, etc)
 - Image Slider (full width) - (Optional click to scroll buttons, dots, etc)
+
+THEME SETTING COMPONENTS
+
+- A text header that can be put in every component but controlled at a theme level
+    contains - title, subtitle, text
+    settings - margin below title, uppercase, color, underline, title font. 
 
 For Therese:
 

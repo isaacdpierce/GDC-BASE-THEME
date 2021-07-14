@@ -48,6 +48,7 @@
     height: {{ section.settings.hero_height }}px;
     margin-top: {{ section.settings.t_margin }}px;
     margin-bottom: {{ section.settings.b_margin }}px;
+    background-color: {{ section.settings.bg_color }};
   }
 
   .gdc-hero-image-text__image.section--{{ section.id }} {
@@ -56,6 +57,7 @@
 
   .gdc-hero-image-text__image.section--{{ section.id }} img {
     object-position: {{ section.settings.img_h_position }}% {{ section.settings.img_v_position }}%;
+    opacity: {{ section.settings.img_opacity }};
   }
 
   .gdc-hero-image-text__text-wrapper.section--{{ section.id }} {
