@@ -4,20 +4,17 @@
       <h2>{{ title }}</h2>
     {% endif %}
     {% if text %}
-      <p>{{ text }}</p>
+      {{ text }}
     {% endif %}
   </div>
 </div>
 
 <style>
   .gdc-block__paragraph-section.block--{{ block.id }} {
-    margin-top: {{ block.settings.t_margin }};
-    margin-bottom: {{ block.settings.b_margin }};
-    padding-top: {{ block.settings.t_padding }};
-    padding-bottom: {{ block.settings.b_padding }};
-  }
-  
-  .gdc-block__paragraph.block--{{ block.id }} {
+    margin-top: {{ block.settings.t_margin }}px;
+    margin-bottom: {{ block.settings.b_margin }}px;
+    padding-top: {{ block.settings.t_padding }}px;
+    padding-bottom: {{ block.settings.b_padding }}px;
     background-color: {{ block.settings.bg_color }};
   }
 
@@ -31,116 +28,3 @@
     text-align: {{ block.settings.text_align }};
   }
 </style>
-
-{% comment %}
-
-SNIPPET FOR RENDER
-{% render 'gdc-block-paragraph', 
-          block: block, 
-          title: block.settings.title,
-          text: block.settings.text,
-          hide_mobile: hide_mobile, 
-          hide_tablets: hide_tablets %}
-
-SCHEMA SETTINGS
-  {
-    "type": "header",
-    "content": "Paragraph Settings"
-  },
-  {
-    "type": "checkbox",
-    "id": "hide_tablets",
-    "label": "Hide grid item on tablets",
-    "default": false,
-    "info": "Section won't show on screen sizes smaller than 1000px wide"
-  },
-  {
-    "type": "checkbox",
-    "id": "hide_phones",
-    "label": "Hide grid item on phones",
-    "default": false,
-    "info": "Section won't show on screen sizes smaller than 600px wide"
-  },
-  {
-    "type": "range",
-    "id": "t_margin",
-    "label": "Section top margin",
-    "default": 0,
-    "min": 0,
-    "max": 100,
-    "step": 10,
-    "unit": "px"
-  },
-  {
-    "type": "range",
-    "id": "b_margin",
-    "label": "Section bottom margin",
-    "default": 0,
-    "min": 0,
-    "max": 100,
-    "step": 10,
-    "unit": "px"
-  },
-  {
-    "type": "range",
-    "id": "t_padding",
-    "label": "Top Padding",
-    "default": 0,
-    "min": 0,
-    "max": 100,
-    "step": 10,
-    "unit": "px"
-  },
-  {
-    "type": "range",
-    "id": "b_padding",
-    "label": "Bottom Padding",
-    "default": 0,
-    "min": 0,
-    "max": 100,
-    "step": 10,
-    "unit": "px"
-  },
-  {
-    "type": "color",
-    "id": "bg_color",
-    "label": "Background color",
-    "default": "#ffffff"
-  },
-  {
-    "type": "color",
-    "id": "font_color",
-    "label": "Font color",
-    "default": "#000"
-  },
-  {
-    "type": "text", 
-    "id": "title",
-    "label": "Title" 
-  },
-  {
-    "type": "select",
-    "id": "title_align",
-    "options": [
-        { "value": "left", "label": "Left"},
-        { "value": "center", "label": "Center"},  
-        { "value": "right", "label": "Right"}
-    ],
-    "label": "Title alignment"
-  },
-  {
-    "type": "richtext",
-    "id": "text",
-    "label": "Text"
-  },
-  {
-    "type": "select",
-    "id": "text_align",
-    "options": [
-        { "value": "left", "label": "Left"},
-        { "value": "center", "label": "Center"},  
-        { "value": "right", "label": "Right"}
-    ],
-    "label": "Text alignment"
-  }
-{% endcomment %}

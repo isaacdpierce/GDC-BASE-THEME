@@ -323,6 +323,19 @@
   margin: 0;
 }
 
+/* ============= TEXT COLUMNS ================= */
+
+
+.gdc-block__text-columns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.gdc-block__text-column {
+  min-width: 180px;
+}
+
 /* ============= GLOBAL SETTINGS ================= */
 
 /* ============= Hide for phones ================= */

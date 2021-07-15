@@ -1,61 +1,32 @@
-{%- liquid 
-  assign column_count = 0
-  assign title_1 = block.settings.title_1
-  assign title_2 = block.settings.title_2
-  assign title_3 = block.settings.title_3
-  assign title_4 = block.settings.title_4
-
-  assign text_1 = block.settings.text_1
-  assign text_2 = block.settings.text_2
-  assign text_3 = block.settings.text_3
-  assign text_4 = block.settings.text_4
--%}
-
+{%- assign column_count = 0 -%}
 
 <div class="gdc-block__text-columns-section block--{{ block.id}} {{ hide_mobile }} {{ hide_tablets }}">
   <div class="gdc-block__text-columns block--{{ block.id}}">
-    {% if title_1 != blank or text_1 != blank %}
-      {% assign column_count = column_count | plus: 1 %}
-      <div class="gdc-block__text-column block--{{ block.id }}">
-        {% render 'gdc-block-paragraph',  block: block, title: title_1, text: text_1 %}
-      </div>
-    {% endif %}
+    {% for i in (1..4) %}
+      {% capture titleNum %}title_{{ i }}{% endcapture %}
+      {% assign title = block.settings[titleNum] %}
+      {% capture textNum %}text_{{ i }}{% endcapture %}
+      {% assign text = block.settings[textNum] %}
 
-    {% if title_2 != blank or text_2 != blank %}
-      {% assign column_count = column_count | plus: 1 %}
-      <div class="gdc-block__text-column block--{{ block.id }}">
-        {% render 'gdc-block-paragraph',  block: block, title: title_2, text: text_2 %}
-      </div>
-    {% endif %}
-
-    {% if title_3 != blank or text_3 != blank %}
-      {% assign column_count = column_count | plus: 1 %}
-      <div class="gdc-block__text-column block--{{ block.id }}">
-        {% render 'gdc-block-paragraph',  block: block, title: title_3, text: text_3 %}
-      </div>
-    {% endif %}
-
-    {% if title_4 != blank or text_4 != blank %}
-      {% assign column_count = column_count | plus: 1 %}
-      <div class="gdc-block__text-column block--{{ block.id }}">
-        {% render 'gdc-block-paragraph',  block: block, title: title_4, text: text_4 %}
-      </div>
-    {% endif %}
+      {% if title != blank or text != blank %}
+        {% assign column_count = column_count | plus: 1 %}
+        <div class="gdc-block__text-column block--{{ block.id }}">
+          {% render 'gdc-block-paragraph',  block: block, title: title, text: text %}
+        </div>
+      {% endif %}
+    {% endfor %}
   </div>
 </div>
 
 <style>
   .gdc-block__text-columns-section.block--{{ block.id }} {
-    margin-top: {{ block.settings.t_margin }};
-    margin-bottom: {{ block.settings.b_margin }};
-    padding-top: {{ block.settings.t_padding }};
-    padding-bottom: {{ block.settings.b_padding }};
+    margin-top: {{ block.settings.t_margin }}px;
+    margin-bottom: {{ block.settings.b_margin }}px;
+    padding-top: {{ block.settings.t_padding }}px;
+    padding-bottom: {{ block.settings.b_padding }}px;
   }
   
   .gdc-block__text-columns.block--{{ block.id }} {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
     background-color: {{ block.settings.bg_color }};
   }
 
@@ -71,28 +42,35 @@
 
   .gdc-block__text-column.block--{{ block.id}} {
     width: calc(100% / {{ column_count }});
-    min-width: 180px;
   }
 
-  {% if block.settings.mobile_wrap == 'half' %}
-    @media (max-width: 800px) {
-      .gdc-block__text-column.block--{{ block.id}} { 
-        width: calc(100% /  2);
-      }
-    } 
-
-    @media (max-width: 500px) {
-      .gdc-block__text-column.block--{{ block.id}} { 
-        width: 100%;
-      }
-    } 
-  {% endif %}
-  
-  {% if block.settings.mobile_wrap == 'stack' %}
-    @media (max-width: 800px) {
+  {% if column_count == 3 and block.settings.mobile_wrap == 'stack'%}
+      @media (max-width: 800px) {
         .gdc-block__text-column.block--{{ block.id}} { 
           width: 100%;
         }
       }
+  {% endif %}
+
+  {% if column_count == 4 %}
+    {% if block.settings.mobile_wrap == 'stack' %}
+      @media (max-width: 800px) {
+        .gdc-block__text-column.block--{{ block.id}} { 
+          width: 100%;
+        }
+      } 
+    {% else %}
+      @media (max-width: 800px) {
+        .gdc-block__text-column.block--{{ block.id}} { 
+          width: calc(100% /  2);
+        }
+      }
+
+      @media (max-width: 500px) {
+        .gdc-block__text-column.block--{{ block.id}} { 
+          width: 100%;
+        }
+      } 
+    {% endif %}
   {% endif %}
 </style>

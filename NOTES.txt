@@ -7,7 +7,7 @@ Build:
 COMPONENTS:
 
 - Super Text section (BLOCKS (rows): paragraphs, columns, title (full width), button (full width))
-
+      *** title (full width) - HUGE font size, color, shadow, underline options
 - Cards section
 - Cards Slider - same as TRA (Optional click to scroll buttons, dots, etc)
 - Image Slider (full width) - (Optional click to scroll buttons, dots, etc)

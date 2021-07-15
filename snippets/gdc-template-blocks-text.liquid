@@ -21,6 +21,9 @@
           
           when 'text-columns'
             render 'gdc-block-text-columns', block: block, hide_mobile: hide_mobile, hide_tablets: hide_tablets
+
+          when 'title'
+            render 'gdc-block-title', block: block, hide_mobile: hide_mobile, hide_tablets: hide_tablets
           
         endcase
       -%}

@@ -112,14 +112,14 @@
           {
             "type": "checkbox",
             "id": "hide_tablets",
-            "label": "Hide grid item on tablets",
+            "label": "Hide paragraph on tablets",
             "default": false,
             "info": "Section won't show on screen sizes smaller than 1000px wide"
           },
           {
             "type": "checkbox",
             "id": "hide_phones",
-            "label": "Hide grid item on phones",
+            "label": "Hide paragraph on phones",
             "default": false,
             "info": "Section won't show on screen sizes smaller than 600px wide"
           },
@@ -208,24 +208,152 @@
         ]
       },
       {
-        "type": "text-columns",
-        "name": "Text Columns",
+        "type": "title",
+        "name": "Title",
         "settings": [
-        {
+          {
             "type": "header",
-            "content": "Column Settings"
+            "content": "Title Settings"
           },
           {
             "type": "checkbox",
             "id": "hide_tablets",
-            "label": "Hide grid item on tablets",
+            "label": "Hide paragraph on tablets",
             "default": false,
             "info": "Section won't show on screen sizes smaller than 1000px wide"
           },
           {
             "type": "checkbox",
             "id": "hide_phones",
-            "label": "Hide grid item on phones",
+            "label": "Hide paragraph on phones",
+            "default": false,
+            "info": "Section won't show on screen sizes smaller than 600px wide"
+          },
+          {
+            "type": "range",
+            "id": "t_margin",
+            "label": "Section top margin",
+            "default": 0,
+            "min": 0,
+            "max": 100,
+            "step": 10,
+            "unit": "px"
+          },
+          {
+            "type": "range",
+            "id": "b_margin",
+            "label": "Section bottom margin",
+            "default": 0,
+            "min": 0,
+            "max": 100,
+            "step": 10,
+            "unit": "px"
+          },
+          {
+            "type": "range",
+            "id": "t_padding",
+            "label": "Top Padding",
+            "default": 0,
+            "min": 0,
+            "max": 100,
+            "step": 10,
+            "unit": "px"
+          },
+          {
+            "type": "range",
+            "id": "b_padding",
+            "label": "Bottom Padding",
+            "default": 0,
+            "min": 0,
+            "max": 100,
+            "step": 10,
+            "unit": "px"
+          },
+          {
+            "type": "color",
+            "id": "bg_color",
+            "label": "Background color",
+            "default": "#ffffff"
+          },
+          {
+            "type": "color",
+            "id": "font_color",
+            "label": "Font color",
+            "default": "#000"
+          },
+          {
+            "type": "text", 
+            "id": "title",
+            "label": "Title" 
+          },
+          {
+            "type": "select",
+            "id": "title_align",
+            "options": [
+               { "value": "left", "label": "Left"},
+               { "value": "center", "label": "Center"},  
+               { "value": "right", "label": "Right"}
+            ],
+            "label": "Title alignment"
+          },
+          {
+            "type": "range",
+            "id": "font_size",
+            "label": "Font Size",
+            "default": 36, 
+            "min": 18,
+            "max": 118,
+            "step": 1,
+            "unit": "px"
+          },
+          {
+            "type": "select",
+            "id": "text_shadow",
+            "options": [
+               { "value": "none", "label": "None"},  
+               { "value": "simple", "label": "Simple"},  
+               { "value": "glow", "label": "Glow"},  
+               { "value": "big_glow", "label": "Big Glow"},  
+               { "value": "fancy", "label": "Fancy"},
+               { "value": "relief", "label": "Relief"},
+               { "value": "deep", "label": "Deep"}
+            ],
+            "label": "Text Shadow"
+          },
+          {
+            "type": "checkbox",
+            "id": "use_custom_font",
+            "label": "Use Custom Font",
+            "default": false,
+            "info": "Check to activate font from selector below. Otherwise default header font will be shown."
+          },
+          {
+            "type": "font_picker",
+            "id": "title_font",
+            "label": "Font",
+            "default": "work_sans_n6" 
+          }
+        ]
+      },
+      {
+        "type": "text-columns",
+        "name": "Text Columns",
+        "settings": [
+          {
+            "type": "header",
+            "content": "Column Settings"
+          },
+          {
+            "type": "checkbox",
+            "id": "hide_tablets",
+            "label": "Hide column section on tablets",
+            "default": false,
+            "info": "Section won't show on screen sizes smaller than 1000px wide"
+          },
+          {
+            "type": "checkbox",
+            "id": "hide_phones",
+            "label": "Hide column section on phones",
             "default": false,
             "info": "Section won't show on screen sizes smaller than 600px wide"
           },
@@ -234,8 +362,7 @@
             "id": "mobile_wrap",
             "options": [
                { "value": "wrap", "label": "Wrap"},
-               { "value": "stack", "label": "Stack"},  
-               { "value": "half", "label": "Half of section width on tablets"}
+               { "value": "stack", "label": "Stack"}
             ],
             "label": "Column Mobile Setting"
           },
@@ -346,7 +473,7 @@
             "id": "text_align",
             "options": [
                { "value": "left", "label": "Left"},
-               { "value": "center", "label": "Center"},  
+               { "value": "center", "label": "Center"},    
                { "value": "right", "label": "Right"}
             ],
             "label": "Text alignment"
