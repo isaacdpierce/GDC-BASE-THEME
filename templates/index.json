@@ -32,25 +32,6 @@
         "adapt_height_first_image": false
       }
     },
-    "image_text_grid": {
-      "type": "gdc-image-text-grid",
-      "settings": {
-        "enable_section": true,
-        "enable_side_gutters": false,
-        "section_width": 100,
-        "column_count": 6,
-        "grid_gap": 6,
-        "t_margin": 0,
-        "b_margin": 0,
-        "t_padding": 0,
-        "b_padding": 0,
-        "title": "",
-        "text": "",
-        "text_align": "left",
-        "background_color": "#ffffff",
-        "font_color": "#000000"
-      }
-    },
     "featured_products": {
       "type": "featured-collection",
       "settings": {
