@@ -206,6 +206,16 @@
       "content": "Left Text Settings"  
     },
     {
+      "type": "range",
+      "id": "left_text_width",
+      "label": "Left Text Width",
+      "default": 100,
+      "min": 30,
+      "max": 100,
+      "step": 1,
+      "unit": "%"
+    },
+    {
       "type": "select",
       "id": "left_text_h_pos",
       "default": "center",
@@ -217,17 +227,6 @@
       "label": "Text Horizontal Position"    
     },
     {
-      "type": "range",
-      "id": "left_text_margin",
-      "label": "Text Area Margin",
-      "default": 0,
-      "min": 0,
-      "max": 80,
-      "step": 1,
-      "unit": "px",
-      "info": "Adds extra blank space around the text element so that it does not sit against the edge of the section."
-    },
-    {
       "type": "select",
       "id": "left_text_v_pos",
       "default": "center",
@@ -237,6 +236,17 @@
          { "value": "flex-end", "label": "Bottom"} 
       ],
       "label": "Text Vertical Position" 
+    },
+    {
+      "type": "range",
+      "id": "left_text_margin",
+      "label": "Text Area Margin",
+      "default": 0,
+      "min": 0,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "info": "Adds extra blank space around the text element so that it does not sit against the edge of the section."
     },
     {
       "type": "color",
@@ -273,21 +283,71 @@
     {
       "type": "text",
       "id": "left_title",
-      "label": "Section Title"
+      "label": "Title"
     }, 
+    {
+      "type": "range",
+      "id": "left_title_size",
+      "label": "Title Font Size",
+      "default": 36,
+      "min": 16,
+      "max": 116,
+      "step": 1,
+      "unit": "px"
+    },
     {
       "type": "text",
       "id": "left_subtitle",
-      "label": "Section Subtitle"
+      "label": "Subtitle"
+    },
+    {
+      "type": "range",
+      "id": "left_subtitle_size",
+      "label": "Subtitle Font Size",
+      "default": 24,
+      "min": 14,
+      "max": 114,
+      "step": 1,
+      "unit": "px" 
     },
     {
       "type": "richtext",
       "id": "left_text",
-      "label": "Section Rich Text"
+      "label": "Rich Text"
+    },
+    {
+      "type": "range",
+      "id": "left_text_size",
+      "label": "Text Font Size",
+      "default": 16,
+      "min": 9,
+      "max": 48,
+      "step": 1,
+      "unit": "px"
+    },
+    {
+      "type": "text",
+      "id": "left_btn_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "url",
+      "id": "left_btn_url",
+      "label": "Button URL"
     },
     {
       "type": "header",
       "content": "Right Text Settings"
+    },
+    {
+      "type": "range",
+      "id": "right_text_width",
+      "label": "Right Text Width",
+      "default": 100,
+      "min": 30,
+      "max": 100,
+      "step": 1,
+      "unit": "%"
     },
     {
       "type": "select",
@@ -357,23 +417,63 @@
     {
       "type": "text",
       "id": "right_title",
-      "label": "Section Title"
+      "label": "Title"
+    },
+    {
+      "type": "range",
+      "id": "right_title_size",
+      "label": "Title Size",
+      "default": 36,
+      "min": 16,
+      "max": 116,
+      "step": 1,
+      "unit": "px"
     },
     {
       "type": "text",
       "id": "right_subtitle",
-      "label": "Section Subtitle"
+      "label": "Subtitle"
+    },
+    {
+      "type": "range",
+      "id": "right_subtitle_size",
+      "label": "Subtitle Size",
+      "default": 24,
+      "min": 14,
+      "max": 114,
+      "step": 1,
+      "unit": "px"
     },
     {
       "type": "richtext",
       "id": "right_text",
-      "label": "Section Rich Text"
+      "label": "Rich Text"
+    },
+    {
+      "type": "range",
+      "id": "right_text_size",
+      "label": "Text Size",
+      "default": 16,
+      "min": 9,
+      "max": 48,
+      "step": 1,
+      "unit": "px"
+    },
+    {
+      "type": "text",
+      "id": "right_btn_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "url",
+      "id": "right_btn_url",
+      "label": "Button URL" 
     }
   ],
   "presets": [
     {
-      "name": "Hero: Split",
-      "category": "GDC Custom Components"
+      "name": "GDC: Hero Split",
+      "category": "GDC Custom Components" 
     }
   ]
 }

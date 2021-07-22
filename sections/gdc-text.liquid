@@ -213,7 +213,7 @@
         "settings": [
           {
             "type": "header",
-            "content": "Title Settings"
+            "content": "Title Section Settings"
           },
           {
             "type": "checkbox",
@@ -282,6 +282,10 @@
             "default": "#000"
           },
           {
+            "type": "header",
+            "content": "Title Settings"
+          },
+          {
             "type": "text", 
             "id": "title",
             "label": "Title" 
@@ -300,11 +304,80 @@
             "type": "range",
             "id": "font_size",
             "label": "Font Size",
-            "default": 36, 
-            "min": 18,
+            "default": 36,   
+            "min": 18,  
             "max": 118,
-            "step": 1,
-            "unit": "px"
+            "step": 1,  
+            "unit": "px"  
+          },
+          {
+            "type": "checkbox",
+            "id": "border_all",
+            "label": "Border All Sides",
+            "default": false,
+            "info": "Must uncheck for single side borders."
+          },
+          {
+            "type": "checkbox",
+            "id": "border_top",
+            "label": "Border Top",
+            "default": false
+          },
+          {
+            "type": "checkbox",
+            "id": "border_bottom",
+            "label": "Border Bottom",
+            "default": false
+          },
+          {
+            "type": "checkbox",
+            "id": "border_left",
+            "label": "Border Left",
+            "default": false
+          },
+          {
+            "type": "checkbox",
+            "id": "border_right",
+            "label": "Border Right",
+            "default": false
+          },
+          {
+            "type": "range",
+            "id": "border_size",
+            "label": "Border Size",
+            "default": 0,   
+            "min": 0,  
+            "max": 30,
+            "step": 1,  
+            "unit": "px"  
+          },
+          {
+            "type": "range",
+            "id": "text_h_padding",
+            "label": "Text Horizontal Padding", 
+            "default": 0,   
+            "min": 0,  
+            "max": 60,
+            "step": 1,  
+            "unit": "px",
+            "info": "The space between the text and the text left and right borders."   
+          },
+          { 
+            "type": "range",
+            "id": "text_v_padding",
+            "label": "Text Vertical Padding",
+            "default": 0,   
+            "min": 0,  
+            "max": 60,
+            "step": 1,  
+            "unit": "px",
+            "info": "The space between the text and the text top and bottom borders."   
+          },
+          {
+            "type": "color",
+            "id": "border_color",
+            "label": "Border color",
+            "default": "#000"
           },
           {
             "type": "select",
@@ -480,11 +553,198 @@
             "label": "Text alignment"
           }
         ]
+      },
+      {
+        "type": "button",
+        "name": "Button",
+        "settings": [
+          {
+            "type": "header",
+            "content": "Section Settings"
+          },
+          {
+            "type": "checkbox",
+            "id": "hide_tablets",
+            "label": "Hide paragraph on tablets",
+            "default": false,
+            "info": "Section won't show on screen sizes smaller than 1000px wide"
+          },
+          {
+            "type": "checkbox",
+            "id": "hide_phones",
+            "label": "Hide paragraph on phones",
+            "default": false,
+            "info": "Section won't show on screen sizes smaller than 600px wide"
+          },
+          {
+            "type": "range",
+            "id": "t_margin",
+            "label": "Section top margin",
+            "default": 0,
+            "min": 0,
+            "max": 100,
+            "step": 10,
+            "unit": "px"
+          },
+          {
+            "type": "range",
+            "id": "b_margin",
+            "label": "Section bottom margin",
+            "default": 0,
+            "min": 0,
+            "max": 100,
+            "step": 10,
+            "unit": "px"
+          },
+          {
+            "type": "range",
+            "id": "t_padding",
+            "label": "Top Padding",
+            "default": 0,
+            "min": 0,
+            "max": 100,
+            "step": 10,
+            "unit": "px"
+          },
+          {
+            "type": "range",
+            "id": "b_padding",
+            "label": "Bottom Padding",
+            "default": 0,
+            "min": 0,
+            "max": 100,
+            "step": 10,
+            "unit": "px"
+          },
+          {
+            "type": "color",
+            "id": "bg_color",
+            "label": "Background color",
+            "default": "#ffffff"
+          },
+          {
+            "type": "header",
+            "content": "Button Settings"
+          },
+          {
+            "type": "text", 
+            "id": "btn_text",
+            "label": "Button Text" 
+          },
+          {
+            "type": "url", 
+            "id": "url",
+            "label": "Button URL" 
+          },
+          {
+            "type": "select",
+            "id": "h_align",
+            "options": [
+               { "value": "start", "label": "Left"}, 
+               { "value": "center", "label": "Center"},  
+               { "value": "flex-end", "label": "Right"}
+            ],
+            "label": "Button Horizontal alignment"
+          },
+          {
+            "type": "range",
+            "id": "font_size",
+            "label": "Font Size", 
+            "default": 18, 
+            "min": 14,
+            "max": 48,
+            "step": 1,
+            "unit": "px"
+          },
+          {
+            "type": "range",
+            "id": "btn_border",
+            "label": "Border", 
+            "default": 0, 
+            "min": 0,
+            "max": 15,
+            "step": 1,
+            "unit": "px" 
+          },
+          {
+            "type": "range",
+            "id": "btn_corners",
+            "label": "Rounded Corners", 
+            "default": 0, 
+            "min": 0,
+            "max": 50,
+            "step": 1,
+            "unit": "%"
+          },
+          {
+            "type": "header",
+            "content": "Button Color Settings"
+          },
+          {
+            "type": "color",
+            "id": "font_color",
+            "label": "Font color",
+            "default": "#000"
+          },
+          {
+            "type": "color",
+            "id": "button_border_color",
+            "label": "Button Border Color",
+            "default": "#000"
+          },
+          {
+            "type": "color",
+            "id": "button_color",
+            "label": "Button color",
+            "default": "#999"
+          },
+          {
+            "type": "color",
+            "id": "button_color_2",
+            "label": "Button color 2",
+            "info": "Select second color to activate gradient on button."
+          },
+          {
+            "type": "range",
+            "id": "color_1_prcnt",
+            "label": "Color One Percent", 
+            "default": 50, 
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "%",
+            "info": "Must select second color to activate gradient." 
+          },
+          {
+            "type": "range",
+            "id": "gradient_angle",
+            "label": "Gradient Angle", 
+            "default": 0, 
+            "min": 0,
+            "max": 180,
+            "step": 2,
+            "unit": "deg",
+            "info": "Must select second color to activate gradient." 
+          },
+          {
+            "type": "select",
+            "id": "btn_animation",
+            "options": [
+               { "value": "none", "label": "None"},
+               { "value": "lift", "label": "Lift"},
+               { "value": "rise", "label": "Rise"},  
+               { "value": "expanse", "label": "Expanse"}, 
+               { "value": "pointer", "label": "Pointer"},
+               { "value": "glow", "label": "Glow (Use with dark backgrounds)"}
+            ],
+            "label": "Button Animation"
+          }
+        ]
       }
     ],
     "presets": [
       {
-        "name": "Text",
+        "name": "GDC: Text",
         "category": "GDC Custom Components" 
       }
     ]

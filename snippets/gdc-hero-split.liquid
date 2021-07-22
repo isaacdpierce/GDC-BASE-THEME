@@ -3,11 +3,11 @@
   assign show_left_text = false
   assign show_right_text = false
 
-  if section.settings.left_title != blank or section.settings.left_subtitle != blank or section.settings.left_text != blank
+  if section.settings.left_title != blank or section.settings.left_subtitle != blank or section.settings.left_text != blank or section.settings.left_btn_text != blank
     assign show_left_text = true
   endif
 
-  if section.settings.right_title != blank or section.settings.right_subtitle != blank or section.settings.right_text != blank
+  if section.settings.right_title != blank or section.settings.right_subtitle != blank or section.settings.right_text != blank or section.settings.right_btn_text != blank
     assign show_right_text = true
   endif
 -%}
@@ -46,6 +46,9 @@
           {% if section.settings.left_text != blank %}
           <p>{{ section.settings.left_text }}</p>
           {% endif %}
+          {% if section.settings.left_btn_text != blank %}
+          <a class="button button--primary gdc-hero-split__btn" href="{{ section.settings.left_btn_url }}">{{ section.settings.left_btn_text }}</a>
+          {% endif %}
         </div>
       </div>
     {% endif %}
@@ -83,6 +86,9 @@
         {% endif %}
         {% if section.settings.right_text != blank %} 
         <p>{{ section.settings.right_text }}</p>
+        {% endif %}
+        {% if section.settings.right_btn_text != blank %}
+        <a class="button button--primary gdc-hero-split__btn" href="{{ section.settings.right_btn_url }}">{{ section.settings.right_btn_text }}</a>
         {% endif %}
       </div>
     </div>
@@ -147,6 +153,7 @@
     justify-content: {{ section.settings.right_text_h_pos }};
     align-items: {{ section.settings.right_text_v_pos }};
     margin: {{ section.settings.right_text_margin }}px;
+    
   }
 
   .gdc-hero-split__text--left.section--{{ section.id }} {
@@ -156,7 +163,7 @@
     {% else %}
       background-color: {{ section.settings.left_text_bg_color }};
     {% endif %};
-    
+    width: {{ section.settings.left_text_width }}%;
   }
 
   .gdc-hero-split__text--right.section--{{ section.id }} {
@@ -166,6 +173,7 @@
     {% else %}
       background-color: {{ section.settings.right_text_bg_color }};
     {% endif %};
+    width: {{ section.settings.right_text_width }}%;
   }
 
   .gdc-hero-split__text--left.section--{{ section.id }} p,
@@ -174,35 +182,30 @@
     color: {{ section.settings.left_text_color }};
   }
 
+  .gdc-hero-split__text--left.section--{{ section.id }} p {
+    font-size: {{ section.settings.left_text_size }}px;
+  }
+  .gdc-hero-split__text--left.section--{{ section.id }} h2 {
+    font-size: {{ section.settings.left_title_size }}px;
+  }
+  .gdc-hero-split__text--left.section--{{ section.id }} h3 {
+    font-size: {{ section.settings.left_subtitle_size }}px;
+  }
+
   .gdc-hero-split__text--right.section--{{ section.id }} p,
   .gdc-hero-split__text--right.section--{{ section.id }} h2,
   .gdc-hero-split__text--right.section--{{ section.id }} h3 {
     color: {{ section.settings.right_text_color }};
   }
 
-  @media only screen and (max-width: 800px) {
-    .gdc-hero-split__section-wrapper {
-      flex-direction: column;
-    }
-
-    .gdc-hero-split__side-wrapper {
-      width: 100vw;
-    }
-
-    .gdc-hero-split__image--right img,
-    .gdc-hero-split__image--left img {
-      object-position: 50% 50%;
-    }
-
-    .gdc-hero-split__text-wrapper {
-      justify-content: center;
-      align-items: center;
-      margin: 0px;
-    }
-
-    .gdc-hero-split__text {
-      max-width: 90vw;
-    }
+  .gdc-hero-split__text--right.section--{{ section.id }} p {
+    font-size: {{ section.settings.right_text_size }}px;
+  }
+  .gdc-hero-split__text--right.section--{{ section.id }} h2 {
+    font-size: {{ section.settings.right_title_size }}px;
+  }
+  .gdc-hero-split__text--right.section--{{ section.id }} h3 {
+    font-size: {{ section.settings.right_subtitle_size }}px;
   }
 
 </style>

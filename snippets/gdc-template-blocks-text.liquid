@@ -24,8 +24,11 @@
 
           when 'title'
             render 'gdc-block-title', block: block, hide_mobile: hide_mobile, hide_tablets: hide_tablets
+
+          when 'button'
+            render 'gdc-block-button', block: block, hide_mobile: hide_mobile, hide_tablets: hide_tablets
           
         endcase
       -%}
   {%- endfor -%}
-</div>
+</div> 

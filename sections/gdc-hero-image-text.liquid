@@ -75,15 +75,6 @@
     },
     {
       "type": "range",
-      "id": "img_opacity",
-      "label": "Image Opacity",
-      "default": 0,
-      "min": 0,
-      "max": 1,
-      "step": 0.1
-    },
-    {
-      "type": "range",
       "id": "img_h_position",
       "min": 0,
       "max": 100,
@@ -101,6 +92,90 @@
       "unit": "%",
       "label": "Image Vertical Position",
       "default": 50
+    },
+    {
+      "type": "header",
+      "content": "Image Color Settings"
+    },
+    {
+      "type": "range",
+      "id": "opacity",
+      "label": "Opacity",
+      "default": 100,
+      "min": 0,
+      "max": 100,
+      "unit": "%",
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "blur",
+      "label": "Blur",
+      "default": 0,
+      "min": 0,
+      "max": 100,
+      "unit": "%",
+      "step": 1
+    }, 
+    {
+      "type": "range",
+      "id": "brightness",
+      "label": "Brightness",
+      "default": 100,
+      "min": 10,
+      "max": 200,
+      "unit": "%",
+      "step": 2
+    },
+    {
+      "type": "range",
+      "id": "contrast",
+      "label": "Contrast",
+      "default": 100,
+      "min": 10,
+      "max": 200,
+      "unit": "%",
+      "step": 2
+    },
+    {
+      "type": "range",
+      "id": "grey_scale",
+      "label": "Gey Scale",
+      "default": 0,
+      "min": 0,
+      "max": 100,
+      "unit": "%",
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "hue_rotate",
+      "label": "Hue Rotate",
+      "default": 0,
+      "min": 0,
+      "max": 360,
+      "unit": "%",
+      "step": 5
+    },
+    {
+      "type": "range",
+      "id": "sepia",
+      "label": "Sepia",
+      "default": 0,
+      "min": 0,
+      "max": 100,
+      "unit": "%",
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "saturate",
+      "label": "Saturate",
+      "default": 100,
+      "min": 0,
+      "max": 200,
+      "unit": "%",  
+      "step": 2
     },
     {
       "type": "header",
@@ -218,7 +293,7 @@
   ],
   "presets": [
     {
-      "name": "Hero: Image and Text",
+      "name": "GDC: Hero Image and Text",
       "category": "GDC Custom Components"
     }
   ]

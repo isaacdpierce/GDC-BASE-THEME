@@ -52,7 +52,7 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Image with text"
+            "heading": "Image with text" 
           }
         },
         "text": {
@@ -83,8 +83,7 @@
     }
   },
   "order": [
-    "image_banner",
-    "image_text_grid",
+    "image_banner", 
     "featured_products",
     "image_text"
   ]

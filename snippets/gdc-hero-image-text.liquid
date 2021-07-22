@@ -51,13 +51,13 @@
     background-color: {{ section.settings.bg_color }};
   }
 
-  .gdc-hero-image-text__image.section--{{ section.id }} {
+  .gdc-hero-image-text__image.section--{{ section.id }} { 
     height: {{ section.settings.hero_height }}px;
   }
 
   .gdc-hero-image-text__image.section--{{ section.id }} img {
     object-position: {{ section.settings.img_h_position }}% {{ section.settings.img_v_position }}%;
-    opacity: {{ section.settings.img_opacity }};
+    {% render 'gdc-css-filters' type: section %} 
   }
 
   .gdc-hero-image-text__text-wrapper.section--{{ section.id }} {

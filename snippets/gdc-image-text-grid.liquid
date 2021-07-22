@@ -6,6 +6,8 @@
   assign width_deducer =  grid_gap | divided_by: grid_gap_variance
   assign gap_pixel_variance =  grid_gap | minus: width_deducer
   assign header_section = false
+  assign side_gutters = section.settings.enable_side_gutters
+
 
   if section.settings.title != blank or section.settings.text != blank
       assign header_section = true
@@ -22,7 +24,7 @@
             <h2>{{ section.settings.title }}</h2>
           {% endif %}
           {%  if section.settings.text != blank %}
-            <p>{{ section.settings.text }}</p> 
+            <p>{{ section.settings.text }}</p>
           {% endif %}
       </header>
     {% endif %}
@@ -31,10 +33,10 @@
         {% for block in section.blocks %}
           <div class="gdc-image-text-grid__item block--{{ block.id }} 
           {% if block.settings.hide_tablets %}
-            gdc-hide-on-tablets
+            hide-1000
           {% endif %}
           {% if block.settings.hide_phones %}
-            gdc-hide-on-phones
+            hide-600
           {% endif %}
           ">
             <div class="gdc-image-text-grid__text block--{{ block.id }}">
@@ -71,12 +73,24 @@
             </div>
             {% endif %}
           </div>
+
           <style>
           .gdc-image-text-grid__item.block--{{ block.id }} {
             background-color: {{ block.settings.background_color }};
             color: {{ block.settings.font_color }};
             grid-column:  span {{ block.settings.column_span }};
             grid-row: span {{ block.settings.row_span }};
+          }
+
+          @media only screen and (max-width: 800px) {
+            .gdc-image-text-grid__item.block--{{ block.id }} {
+            {% if block.settings.column_span > 1 %}
+              grid-column:  span 2;
+            {% endif %}
+            {% if block.settings.row_span > 1 %}
+              grid-row:  span 2;
+            {% endif %}
+          }
           }
 
           .gdc-image-text-grid__text.block--{{ block.id }} {
@@ -148,22 +162,38 @@
 
 <style>
   .gdc-image-text-grid__section-wrapper.section--{{ section.id }} {
+
+    /* ================ CSS Section Variables ================ */
+    {% if side_gutters %}
+    --section-width: calc({{ section_width }}vw - {{grid_gap}}px * 2);
+    {% else %}
+    --section-width: {{ section_width }}vw;
+    {% endif %}
     --gap-variance: calc({{ grid_gap }}px / {{ column_count }});
+    /* ======================================================= */
+
     margin-top: {{ section.settings.t_margin }}px;
     margin-bottom: {{ section.settings.b_margin }}px;
   }
 
-  {% if section.settings.enable_side_gutters %}
+  {% if side_gutters %}
     .gdc-image-text-grid__side-padding.section--{{ section.id }} {
-      width: calc({{ section_width }}vw + {{grid_gap}}px * 2);
+      width: calc(var(--section-width) + {{ grid_gap }}px * 2);
       background-color: {{ section.settings.background_color }};
       margin: 0 auto;
     }
   {% endif %}
 
+  .gdc-image-text-grid__wrapper.section--{{ section.id }} {
+    gap: {{ grid_gap }}px;
+    grid-template-columns:  repeat({{ column_count }}, calc((100% / {{ column_count }}) - ({{ grid_gap }}px - var(--gap-variance))));
+    width: var(--section-width);
+    grid-auto-rows: calc((var(--section-width) / {{ column_count }}) - ({{ grid_gap }}px - var(--gap-variance)));
+  }
+
   .gdc-image-text-grid__section.section--{{ section.id }} {
-    width: {{ section_width }}vw;
-    background-color: {{ section.settings.background_color }};
+    width: var(--section-width);
+    background-color: {{ section.settings.background_color }};  
     color: {{ section.settings.font_color }};
     padding-top: {{ section.settings.t_padding }}px;
     padding-bottom: {{ section.settings.b_padding }}px;
@@ -173,16 +203,24 @@
     text-align: {{ section.settings.text_align }};
   }
 
-  .gdc-image-text-grid__wrapper.section--{{ section.id }} {
-    gap: {{ grid_gap }}px;
-    grid-template-columns:  repeat({{ column_count }}, calc((100% / {{ column_count }}) - ({{ grid_gap }}px - var(--gap-variance))));
-    width: {{ section_width }}vw;
-    grid-auto-rows: calc(({{ section_width }}vw / {{ column_count }}) - ({{ grid_gap }}px - var(--gap-variance)));
-  }
 
-  @media only screen and (max-width: 900px) {
+  @media only screen and (max-width: 800px) {
     .gdc-image-text-grid__wrapper.section--{{ section.id }} {
-      grid-auto-rows: calc((95vw / {{ column_count }}) - ({{ grid_gap }}px - var(--gap-variance)));
+      {% if grid_gap > 5 %}
+      gap: 5px;
+      {% endif %}
+      grid-template-columns:  50vw 50vw;
+      grid-auto-rows: 50vw;
+    }
+    
+    .gdc-image-text-grid__side-padding.section--{{ section.id }} {
+      width: 100vw;
+    }
+
+    .gdc-image-text-grid__section.section--{{ section.id }} {
+      margin: 0;
+      /* padding-top: 0px;
+      padding-bottom: 0px; */
     }
   }
 

@@ -161,6 +161,7 @@
 
 .gdc-hero-split__text {
   padding: 20px;
+  min-width: 150px;
 }
 
 .gdc-hero-split__text p,
@@ -173,6 +174,35 @@
 .gdc-hero-split__text h2,
 .gdc-hero-split__text h3 {
   margin-bottom: 10px;
+}
+
+.gdc-hero-split__btn {
+  margin-top: 20px;
+}
+
+@media only screen and (max-width: 800px) {
+  .gdc-hero-split__section-wrapper {
+    flex-direction: column;
+  }
+
+  .gdc-hero-split__side-wrapper {
+    width: 100vw;
+  }
+
+  .gdc-hero-split__image--right img,
+  .gdc-hero-split__image--left img {
+    object-position: 50% 50%;
+  }
+
+  .gdc-hero-split__text-wrapper {
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+  }
+
+  .gdc-hero-split__text {
+    max-width: 90vw;
+  }
 }
 
 /* =============== GDC Image Grid ========================== */
@@ -254,14 +284,6 @@
 }
 
 @media only screen and (max-width: 900px){
-  .gdc-hide-on-tablets {
-    display: none;
-  }
-
-  .gdc-image-text-grid__section {
-    width: 100vw;
-  }
-
   .gdc-image-text-grid__wrapper {
     width: 95vw;
   }
@@ -309,11 +331,20 @@
   justify-content: center;
 }
 
-.gdc-block__paragraph {
+.gdc-block__paragraph,
+.gdc-block__title,
+.gdc-block__button {
   padding-left: 10px;
   padding-right: 10px;
   width: 100%;
-}
+} 
+
+
+.gdc-block__title h2 {
+  display: inline-block; 
+  margin: 0;
+  line-height: 1; 
+}  
 
 .gdc-block__paragraph h2 {
   margin: 10px 0;
@@ -321,10 +352,9 @@
 
 .gdc-block__paragraph p {
   margin: 0;
-}
+} 
 
 /* ============= TEXT COLUMNS ================= */
-
 
 .gdc-block__text-columns {
   display: flex;
@@ -336,7 +366,115 @@
   min-width: 180px;
 }
 
+/* ============= BUTTON BLOCK  ================= */
+
+.gdc-block__button {
+  display: flex;
+}
+
+.gdc-block__button a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.gdc-block__button a span {
+  cursor: pointer;
+}
+
+.gdc-button {
+  padding: 0.9rem 3rem 1.1rem;
+}
+
+.button-animation {
+  transition: all .3s ease-in-out;
+}
+
+/* ============= SIDE SCROLLER ================= */
+
+.gdc-side-scroller {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.gdc-side-scroller-text {
+  padding: 30px 0;
+  width: 100%;
+  text-align: center;
+}
+
+.gdc-row-scroller {
+  display: flex;
+  width: 100vw;
+  overflow-x: scroll;
+  scrollbar-width: thin;
+  scrollbar-color:#c0c0c0 rgba(0, 0, 0, 0.151);
+  -webkit-overflow-scrolling: touch;
+}
+
+.gdc-row-scroller::-webkit-scrollbar {
+  width: 1em;
+}
+
+.gdc-row-scroller::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 16px rgba(0, 0, 0, 0.151);
+}
+
+.gdc-row-scroller::-webkit-scrollbar-thumb {
+  position: relative;
+  background-color:#c0c0c0;
+  border-radius: 10px;
+}
+
+/* ============= IMAGE CARD ================= */
+
+.gdc-card__wrapper {
+  text-align: center;
+  margin: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gdc-card__image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.gdc-card__image img {
+  width: 100%;
+  height: 100%;
+}
+
+.gdc-card__wrapper h5 {
+  font-size: 16px;
+  text-transform: none;
+  margin: 0;
+}
+
+.gdc-card__wrapper p {
+  font-size: 14px;
+}
+
+.gdc-card__link-wrapper {
+  text-decoration: none;
+  color: currentColor;
+}
+
+
 /* ============= GLOBAL SETTINGS ================= */
+.gdc-section-header,
+.gdc-section-header--center {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.gdc-section-header--center {
+  text-align: center;
+}
 
 /* ============= Hide for phones ================= */
 @media only screen and (max-width: 600px){
