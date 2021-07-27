@@ -2,6 +2,11 @@
 
 ## TODO
 
+ADD CURRENCY CONVERTER 
+
+SEE VIDEO — https://www.youtube.com/watch?v=qvzKKM1HPZc
+OR TUT (convert JQuery to JS)— https://incomestreamsurfer.medium.com/how-to-custom-build-a-shopify-developer-store-for-free-and-add-a-currency-converter-and-metafields-1bbf6797a35a
+
 Build:
 
 COMPONENTS:

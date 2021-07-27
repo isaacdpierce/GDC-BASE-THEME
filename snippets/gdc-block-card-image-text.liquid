@@ -44,16 +44,16 @@
 
   .gdc-card__image.block--{{ id }} img {
     object-fit: {{ fit }};
-    width: {{ card_image_width }}%; 
+    width: {{ card_image_width }}px; 
   }
 
 {% if fit == 'cover' %}
   .gdc-card__image.block--{{ id }} img {
-    height: {{ card_image_width }}%; 
+    height: {{ card_image_width }}px; 
   }
 
   .gdc-card__image.block--{{ id }} {
-    height: {{ card_width }}px; 
+    height: {{ card_image_width }}px; 
   }
 {% endif %}
 </style>

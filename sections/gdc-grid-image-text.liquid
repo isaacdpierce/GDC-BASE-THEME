@@ -1,10 +1,11 @@
 {% if section.settings.enable_section %}
-  {% render 'gdc-image-text-grid' %}
+  {% render 'gdc-grid-image-text-mobile' %}
+  {% render 'gdc-grid-image-text-desktop' %}
 {% endif %}
 
 {% schema %}
   {
-    "name": "GDC: Image Text Grid",
+    "name": "GDC: Grid Image & Text",
     "settings": [
       {
         "type": "header",
@@ -17,39 +18,14 @@
         "default": true
       },
       {
-        "type": "checkbox",
-        "id": "enable_side_gutters",
-        "label": "Enable Side Gutters",
-        "default": false
-      },
-      {
         "type": "range",
         "id": "section_width",
         "min": 60,
         "max": 100,
-        "step": 10,
+        "step": 1,
         "unit": "%",
-        "label": "Section Width", 
+        "label": "Section Width",
         "default": 100
-      },
-      {
-        "type": "range",
-        "id": "column_count",
-        "min": 3,
-        "max": 6,
-        "step": 1,
-        "label": "Column Count", 
-        "default": 6
-      },
-      {
-        "type": "range",
-        "id": "grid_gap",
-        "min": 0,
-        "max": 40,
-        "step": 1,
-        "unit": "px",
-        "label": "Gap between grid items",
-        "default": 6
       },
       {
         "type": "range",
@@ -92,6 +68,32 @@
         "unit": "px"
       },
       {
+        "type": "range",
+        "id": "column_count",
+        "min": 3,
+        "max": 6,
+        "step": 1,
+        "label": "Column Count", 
+        "default": 6
+      },
+      {
+        "type": "range",
+        "id": "grid_gap",
+        "min": 0,
+        "max": 40,
+        "step": 1,
+        "unit": "px",
+        "label": "Gap between grid items",
+        "default": 6
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_side_gutters",
+        "label": "Enable Side Spacing",
+        "default": false,
+        "info": "(Desktop Only) Creates space on either side of the grid the same width as grid Gap (above)."
+      },
+      {
         "type": "text", 
         "id": "title",
         "label": "Section Title" 
@@ -105,9 +107,9 @@
         "type": "select",
         "id": "text_align",
         "options": [
-           { "value": "left", "label": "Left"},
-           { "value": "center", "label": "Center"},  
-           { "value": "right", "label": "Right"}
+          { "value": "left", "label": "Left"},
+          { "value": "center", "label": "Center"},  
+          { "value": "right", "label": "Right"}
         ],
         "label": "Text alignment"
       },
@@ -144,6 +146,12 @@
             "id": "hide_phones",
             "label": "Hide grid item on phones",
             "default": false
+          },
+          {
+            "type": "url",
+            "id": "url",
+            "label": "Section URL",
+            "info": "Makes entire grid item link to url."
           },
           {
             "type": "range",
@@ -186,8 +194,8 @@
             "type": "select",
             "id": "image_fill",
             "options": [
-               { "value": "cover", "label": "Cover"},
-               { "value": "contain", "label": "Contain"}
+              { "value": "cover", "label": "Cover"},
+              { "value": "contain", "label": "Contain"}
             ],
             "label": "Image Fill"
           },
@@ -243,6 +251,16 @@
             "default": 18
           },
           {
+            "type": "range",
+            "id": "mobile_title_font_size",
+            "min": 12,
+            "max": 90,
+            "step": 1,
+            "unit": "px",
+            "label": "Mobile Title Font size",
+            "default": 18
+          },
+          {
             "type": "richtext", 
             "id": "text",
             "label": "Text"
@@ -258,12 +276,22 @@
             "default": 16
           },
           {
+            "type": "range",
+            "id": "mobile_font_size",
+            "min": 10,
+            "max": 40,
+            "step": 1,
+            "unit": "px",
+            "label": "Mobile Font size",
+            "default": 16
+          },
+          {
             "type": "select",
             "id": "text_align",
             "options": [
-               { "value": "left", "label": "Left"},
-               { "value": "center", "label": "Center"},
-               { "value": "right", "label": "Right"}
+              { "value": "left", "label": "Left"},
+              { "value": "center", "label": "Center"},
+              { "value": "right", "label": "Right"}
             ],
             "label": "Text alignment"
           },
@@ -271,9 +299,9 @@
             "type": "select",
             "id": "text_h_place",
             "options": [
-               { "value": "start", "label": "Left"},
-               { "value": "center", "label": "Center"},
-               { "value": "flex-end", "label": "Right"}
+              { "value": "start", "label": "Left"},
+              { "value": "center", "label": "Center"},
+              { "value": "flex-end", "label": "Right"}
             ],
             "label": "Text Horizontal Placement" 
           },
@@ -281,9 +309,9 @@
             "type": "select",
             "id": "text_v_place",
             "options": [
-               { "value": "start", "label": "Top"},
-               { "value": "center", "label": "Center"},
-               { "value": "flex-end", "label": "Bottom"}
+              { "value": "start", "label": "Top"},
+              { "value": "center", "label": "Center"},
+              { "value": "flex-end", "label": "Bottom"}
             ],
             "label": "Text Vertical Placement" 
           },
@@ -388,7 +416,7 @@
     ],
     "presets": [
       {
-        "name": "GDC: Image Text Grid",
+        "name": "GDC: Grid Image & Text",
         "category": "GDC Custom Components"
       }
     ]

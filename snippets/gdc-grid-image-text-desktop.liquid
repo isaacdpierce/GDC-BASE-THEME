@@ -8,7 +8,6 @@
   assign header_section = false
   assign side_gutters = section.settings.enable_side_gutters
 
-
   if section.settings.title != blank or section.settings.text != blank
       assign header_section = true
   endif
@@ -31,48 +30,65 @@
 
       <div class="gdc-image-text-grid__wrapper section--{{ section.id }}">
         {% for block in section.blocks %}
-          <div class="gdc-image-text-grid__item block--{{ block.id }} 
-          {% if block.settings.hide_tablets %}
-            hide-1000
+
+          {% if block.settings.url != blank %}
+            <a href="{{ block.settings.url }}" 
+                class="gdc-image-text-grid__item block--{{ block.id }} 
+                {% if block.settings.hide_tablets %}
+                  hide-1000
+                {% endif %}
+                {% if block.settings.hide_phones %}
+                  hide-600
+                {% endif %} 
+                no-link-animation" 
+                target="_blank">
           {% endif %}
-          {% if block.settings.hide_phones %}
-            hide-600
+
+              <div class="gdc-image-text-grid__item block--{{ block.id }} 
+                  {% if block.settings.hide_tablets %}
+                    hide-1000
+                  {% endif %}
+                  {% if block.settings.hide_phones %}
+                    hide-600
+                  {% endif %}">
+              <div class="gdc-image-text-grid__text block--{{ block.id }}">
+                <div>
+                  {% if block.settings.title != blank %}
+                    <h3>{{ block.settings.title }}</h3>
+                  {% endif %}
+                  {% if block.settings.text != blank %}
+                    {{ block.settings.text }}
+                  {% endif %}
+                </div>
+              </div>
+              {% if block.settings.image %}
+              <div class="gdc-image-text-grid__image block--{{ block.id }}">
+                <img
+                src="{{ block.settings.image | img_url: '500x' }}"
+                alt="{{ block.settings.image.alt }}"
+                width="{{ block.settings.image.width }}"
+                height="{{ block.settings.image.height }}"
+                loading="lazy"
+                >
+              </div>
+              {% endif %}
+              {% if block.settings.enable_text_overlay %}
+              <div class="gdc-image-text-grid__text-overlay block--{{ block.id }}">
+                <div>
+                  {% if block.settings.bottom_overlay_title != blank %}
+                    <h3>{{ block.settings.bottom_overlay_title }}</h3>
+                  {% endif %}
+                  {% if block.settings.bottom_overlay_text != blank %}
+                    {{ block.settings.bottom_overlay_text }}
+                  {% endif %}
+                </div>
+              </div>
+              {% endif %}
+            </div>
+
+          {% if block.settings.url != blank %}
+          </a>
           {% endif %}
-          ">
-            <div class="gdc-image-text-grid__text block--{{ block.id }}">
-              <div>
-                {% if block.settings.title != blank %}
-                  <h3>{{ block.settings.title }}</h3>
-                {% endif %}
-                {% if block.settings.text != blank %}
-                  {{ block.settings.text }}
-                {% endif %}
-              </div>
-            </div>
-            {% if block.settings.image %}
-            <div class="gdc-image-text-grid__image block--{{ block.id }}">
-              <img
-              src="{{ block.settings.image | img_url: '500x' }}"
-              alt="{{ block.settings.image.alt }}"
-              width="{{ block.settings.image.width }}"
-              height="{{ block.settings.image.height }}"
-              loading="lazy"
-              >
-            </div>
-            {% endif %}
-            {% if block.settings.enable_text_overlay %}
-            <div class="gdc-image-text-grid__text-overlay block--{{ block.id }}">
-              <div>
-                {% if block.settings.bottom_overlay_title != blank %}
-                  <h3>{{ block.settings.bottom_overlay_title }}</h3>
-                {% endif %}
-                {% if block.settings.bottom_overlay_text != blank %}
-                  {{ block.settings.bottom_overlay_text }}
-                {% endif %}
-              </div>
-            </div>
-            {% endif %}
-          </div>
 
           <style>
           .gdc-image-text-grid__item.block--{{ block.id }} {
@@ -80,17 +96,6 @@
             color: {{ block.settings.font_color }};
             grid-column:  span {{ block.settings.column_span }};
             grid-row: span {{ block.settings.row_span }};
-          }
-
-          @media only screen and (max-width: 800px) {
-            .gdc-image-text-grid__item.block--{{ block.id }} {
-            {% if block.settings.column_span > 1 %}
-              grid-column:  span 2;
-            {% endif %}
-            {% if block.settings.row_span > 1 %}
-              grid-row:  span 2;
-            {% endif %}
-          }
           }
 
           .gdc-image-text-grid__text.block--{{ block.id }} {
@@ -159,10 +164,8 @@
   </div>
 </section>
 
-
 <style>
   .gdc-image-text-grid__section-wrapper.section--{{ section.id }} {
-
     /* ================ CSS Section Variables ================ */
     {% if side_gutters %}
     --section-width: calc({{ section_width }}vw - {{grid_gap}}px * 2);
@@ -203,24 +206,9 @@
     text-align: {{ section.settings.text_align }};
   }
 
-
-  @media only screen and (max-width: 800px) {
-    .gdc-image-text-grid__wrapper.section--{{ section.id }} {
-      {% if grid_gap > 5 %}
-      gap: 5px;
-      {% endif %}
-      grid-template-columns:  50vw 50vw;
-      grid-auto-rows: 50vw;
-    }
-    
-    .gdc-image-text-grid__side-padding.section--{{ section.id }} {
-      width: 100vw;
-    }
-
-    .gdc-image-text-grid__section.section--{{ section.id }} {
-      margin: 0;
-      /* padding-top: 0px;
-      padding-bottom: 0px; */
+  @media only screen and (max-width: 800px) {  
+    .gdc-image-text-grid__section-wrapper.section--{{ section.id }} {
+      display: none;
     }
   }
 
